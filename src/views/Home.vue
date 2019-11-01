@@ -1,18 +1,32 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>My Features</h1>
+    <div v-for="recommendation in recommendations">
+      <h2>{{ recommendation.recommendations }}</h2>
+    </div>
+    <div v-for="user in users">
+      <router-link v-bind:to="`/users/${user.id}`">Profile</router-link>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import axios from "axios";
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
-}
+  data: function() {
+    return {
+      recommendations: [],
+      user: {}
+    };
+  },
+  created: function() {
+    axios.get("/api/recommendations").then(response => {
+      this.recommendations = response.data;
+    });
+    axios.get("/api/users/" + this.$route.params.id).then(response => {
+      this.user = response.data;
+    });
+  },
+  methods: {}
+};
 </script>

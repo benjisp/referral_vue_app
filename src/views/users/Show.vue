@@ -22,12 +22,6 @@ export default {
       this.user = response.data;
     });
   },
-  methods: {
-    destroyUser: function(user) {
-      axios.delete("/api/users/" + user.id).then(response => {
-        this.$router.push("/signup");
-      });
-    }
-  }
+  methods: {}
 };
 </script>

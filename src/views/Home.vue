@@ -2,10 +2,7 @@
   <div class="home">
     <h1>My Features</h1>
     <div v-for="recommendation in recommendations">
-      <h2>{{ recommendation.recommendations }}</h2>
-    </div>
-    <div v-for="user in users">
-      <router-link v-bind:to="`/users/${user.id}`">Profile</router-link>
+      <h2>{{ recommendation }}</h2>
     </div>
   </div>
 </template>
@@ -22,9 +19,6 @@ export default {
   created: function() {
     axios.get("/api/recommendations").then(response => {
       this.recommendations = response.data;
-    });
-    axios.get("/api/users/" + this.$route.params.id).then(response => {
-      this.user = response.data;
     });
   },
   methods: {}

@@ -51,6 +51,11 @@ export default {
         .catch(error => {
           this.errors = error.response.data.errors;
         });
+    },
+    destroyUser: function(user) {
+      axios.delete("/api/users/" + user.id).then(response => {
+        this.$router.push("/signup");
+      });
     }
   }
 };

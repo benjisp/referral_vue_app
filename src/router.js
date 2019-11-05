@@ -8,7 +8,7 @@ import Logout from "./views/Logout.vue";
 import UsersShow from "./views/users/Show.vue";
 import UsersEdit from "./views/users/Edit.vue";
 import FeaturesIndex from "./views/features/Index.vue";
-
+import FeaturesShow from "./views/features/Show.vue";
 Vue.use(Router);
 
 export default new Router({
@@ -54,6 +54,11 @@ export default new Router({
       path: "/features",
       name: "features-index",
       component: FeaturesIndex
+    },
+    {
+      path: "/features/:id",
+      name: "features-show",
+      component: FeaturesShow
     }
   ]
 });

@@ -7,15 +7,35 @@
       |
       <router-link to="/signup">Signup</router-link>
       |
-      <router-link to="/login">Login</router-link>
+      <router-link v-if="!isLoggedIn()" to="/login">Login</router-link>
       |
-      <router-link to="/logout">Logout</router-link>
+      <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link>
       |
-      <router-link :to="`/users/${user_id}`">User</router-link>
+      <br />
+      <router-link :to="`/users/${user_id}`">My Profile</router-link>
     </div>
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  data: function() {
+    return {
+      user_id: localStorage.getItem("user_id")
+    };
+  },
+  methods: {
+    isLoggedIn: function() {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+};
+</script>
 
 <style>
 #app {

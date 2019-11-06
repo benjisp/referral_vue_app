@@ -9,6 +9,8 @@ import UsersShow from "./views/users/Show.vue";
 import UsersEdit from "./views/users/Edit.vue";
 import FeaturesIndex from "./views/features/Index.vue";
 import FeaturesShow from "./views/features/Show.vue";
+import RecommendationsIndex from "./views/recommendations/Index.vue";
+
 Vue.use(Router);
 
 export default new Router({
@@ -59,6 +61,11 @@ export default new Router({
       path: "/features/:id",
       name: "features-show",
       component: FeaturesShow
+    },
+    {
+      path: "/recommendations",
+      name: "recommendations-index",
+      component: RecommendationsIndex
     }
   ]
 });

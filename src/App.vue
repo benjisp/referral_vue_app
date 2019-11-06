@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">My Features</router-link>
+      <router-link to="/recommendations">My Features</router-link>
       |
       <router-link to="/features">Feature Search</router-link>
       |

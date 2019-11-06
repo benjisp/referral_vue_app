@@ -43,7 +43,7 @@ export default {
           axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
           localStorage.setItem("user_id", response.data.user_id);
-          window.location.href = "/";
+          window.location.href = "/recommendations";
         })
         .catch(error => {
           this.errors = ["Invalid email or password."];

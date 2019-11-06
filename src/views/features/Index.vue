@@ -4,8 +4,7 @@
     <input type="text" v-model="titleSearch" />
     <button v-on:click="search()">Search</button>
     <div v-for="feature in features">
-      <h2>{{ feature.Title }}</h2>
-      <h2>{{ feature.Year }}</h2>
+      <h2>{{ feature.Title }} ({{ feature.Year }})</h2>
       <img :src="feature.Poster" alt="" />
       <br />
       <select v-model="friendId" id="">
@@ -14,6 +13,8 @@
       </select>
       {{ friendId }}
       <button v-on:click="createRecommendation(feature.imdbID)">Send to Friend</button>
+      <br />
+      <br />
     </div>
   </div>
 </template>

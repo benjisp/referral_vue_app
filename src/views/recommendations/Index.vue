@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="container">
     <h3>
       My Friends:
       <select v-model="friendId" class="form-control" v-on:change="changeRoute" id="">

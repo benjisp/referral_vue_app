@@ -1,18 +1,18 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/recommendations">My Features</router-link>
+      <router-link v-if="isLoggedIn()" to="/recommendations">My Features</router-link>
       |
-      <router-link to="/features">Feature Search</router-link>
+      <router-link v-if="isLoggedIn()" to="/features">Feature Search</router-link>
       |
-      <router-link to="/signup">Signup</router-link>
+      <router-link v-if="!isLoggedIn()" to="/signup">Signup</router-link>
       |
       <router-link v-if="!isLoggedIn()" to="/login">Login</router-link>
       |
       <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link>
       |
       <br />
-      <router-link :to="`/users/${user_id}`">My Profile</router-link>
+      <router-link v-if="isLoggedIn()" :to="`/users/${user_id}`">My Profile</router-link>
     </div>
     <router-view />
   </div>

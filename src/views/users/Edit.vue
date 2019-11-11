@@ -5,13 +5,13 @@
       <ul>
         <li v-for="error in errors">{{ error }}</li>
       </ul>
-      Change Username:
+      Update Username:
       <input type="text" v-model="user.username" />
       <br />
-      Change Email:
+      Update Email:
       <input type="text" v-model="user.email" />
       <br />
-      Change Password:
+      Update Password:
       <input type="text" v-model="user.password" />
       <br />
       <input type="submit" value="Update" />

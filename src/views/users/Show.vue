@@ -2,10 +2,10 @@
   <div class="container">
     <h2>Username: {{ user.username }}</h2>
     <h2>Email: {{ user.email }}</h2>
-    <router-link v-bind:to="`/users/${user.id}/edit`">Edit User</router-link>
+    <router-link v-if="isCurrentUser()" v-bind:to="`/users/${user.id}/edit`">Edit Profile</router-link>
     <br />
     <br />
-    <router-link to="/">Back to Home</router-link>
+    <router-link to="/recommendations">Back to my features</router-link>
   </div>
 </template>
 
@@ -22,6 +22,14 @@ export default {
       this.user = response.data;
     });
   },
-  methods: {}
+  methods: {
+    isCurrentUser: function() {
+      if (localStorage.getItem("user_id") === this.$route.params.id) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
 };
 </script>

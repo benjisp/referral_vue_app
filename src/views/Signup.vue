@@ -1,29 +1,54 @@
 <template>
   <div class="signup">
     <div class="container">
-      <form v-on:submit.prevent="submit()">
-        <h1>Signup</h1>
-        <ul>
-          <li class="text-danger" v-for="error in errors">{{ error }}</li>
-        </ul>
-        <div class="form-group">
-          <label>Username:</label>
-          <input type="text" class="form-control" v-model="username" />
+      <div class="row">
+        <div class="col-12">
+          <div class="sign__content">
+            <!-- registration form -->
+            <form v-on:submit.prevent="submit()" class="sign__form">
+              <a class="sign__logo">
+                <img src="img/logo.svg" alt="" />
+              </a>
+              <div class="sign__group">
+                <input type="text" class="sign__input" placeholder="username" v-model="username" />
+              </div>
+
+              <div class="sign__group">
+                <input type="email" class="sign__input" placeholder="email" v-model="email" />
+              </div>
+
+              <div class="sign__group">
+                <input type="password" class="sign__input" placeholder="password" v-model="password" />
+              </div>
+
+              <div class="sign__group">
+                <input
+                  type="password"
+                  class="sign__input"
+                  placeholder="re-enter password"
+                  v-model="passwordConfirmation"
+                />
+              </div>
+
+              <div class="sign__group sign__group--checkbox">
+                <input id="remember" name="remember" type="checkbox" checked="checked" />
+                <label for="remember">
+                  I agree to the
+                  <a href="#">Privacy Policy</a>
+                </label>
+              </div>
+
+              <input type="submit" class="sign__btn" value="Sign Up" />
+
+              <span class="sign__text">
+                Already have an account?
+                <a href="/login">Login!</a>
+              </span>
+            </form>
+            <!-- registration form -->
+          </div>
         </div>
-        <div class="form-group">
-          <label>Email:</label>
-          <input type="email" class="form-control" v-model="email" />
-        </div>
-        <div class="form-group">
-          <label>Password:</label>
-          <input type="password" class="form-control" v-model="password" />
-        </div>
-        <div class="form-group">
-          <label>Password confirmation:</label>
-          <input type="password" class="form-control" v-model="passwordConfirmation" />
-        </div>
-        <input type="submit" class="btn btn-primary" value="Submit" />
-      </form>
+      </div>
     </div>
   </div>
 </template>

@@ -29,7 +29,9 @@
                   v-model="passwordConfirmation"
                 />
               </div>
-
+              <ul>
+                <li class="error" v-for="error in errors">{{ error }}</li>
+              </ul>
               <div class="sign__group sign__group--checkbox">
                 <input id="remember" name="remember" type="checkbox" checked="checked" />
                 <label for="remember">
@@ -42,7 +44,7 @@
 
               <span class="sign__text">
                 Already have an account?
-                <a href="/login">Login!</a>
+                <a href="/">Login!</a>
               </span>
             </form>
             <!-- registration form -->
@@ -77,10 +79,10 @@ export default {
       axios
         .post("/api/users", params)
         .then(response => {
-          this.$router.push("/login");
+          this.$router.push("/");
         })
         .catch(error => {
-          this.errors = error.response.data.errors;
+          this.errors = ["Username already exists."];
         });
     }
   }

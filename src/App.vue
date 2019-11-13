@@ -9,7 +9,7 @@
               <div class="col-12">
                 <div class="header__content">
                   <!-- header logo -->
-                  <a href="index.html" class="header__logo">
+                  <a href="/recommendations" class="header__logo">
                     <img src="img/logo.svg" alt="" />
                   </a>
                   <!-- end header logo -->
@@ -27,47 +27,16 @@
                   </li>
 
                   <li class="header__nav-item">
-                    <router-link v-if="isLoggedIn()" :to="`/users/${user_id}`" class="header__nav-link">
+                    <router-link v-if="isLoggedIn()" :to="`/users/${user_id}/edit`" class="header__nav-link">
                       Profile
                     </router-link>
                   </li>
 
                   <li class="header__nav-item">
-                    <router-link v-if="!isLoggedIn()" to="/" class="header__nav-link">login</router-link>
+                    <router-link v-if="isLoggedIn()" to="/friends" class="header__nav-link">
+                      Friends
+                    </router-link>
                   </li>
-
-                  <li class="header__nav-item">
-                    <router-link v-if="isLoggedIn()" to="/logout" class="header__nav-link">logout</router-link>
-                  </li>
-
-                  <li class="header__nav-item">
-                    <router-link v-if="!isLoggedIn()" to="/signup" class="header__nav-link">Signup</router-link>
-                  </li>
-
-                  <!-- dropdown -->
-                  <li class="dropdown header__nav-item">
-                    <a
-                      class="dropdown-toggle header__nav-link header__nav-link--more"
-                      href="#"
-                      role="button"
-                      id="dropdownMenuMore"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <i class="icon ion-ios-more"></i>
-                    </a>
-
-                    <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenuMore">
-                      <li><router-link v-if="isLoggedIn()" to="/recommendations">My Features</router-link></li>
-                      <li><router-link v-if="isLoggedIn()" to="/features">Search</router-link></li>
-                      <li><router-link v-if="isLoggedIn()" :to="`/users/${user_id}`">Profile</router-link></li>
-                      <li><router-link v-if="!isLoggedIn()" to="/">Login</router-link></li>
-                      <li><router-link v-if="isLoggedIn()" to="/logout">Logout</router-link></li>
-                      <li><router-link v-if="!isLoggedIn()" to="/signup">Signup</router-link></li>
-                    </ul>
-                  </li>
-                  <!-- end dropdown -->
                   <!-- end header nav -->
 
                   <!-- header auth -->
@@ -90,13 +59,22 @@
                         <li><a href="#">English</a></li>
                         <li><a href="#">Spanish</a></li>
                         <li><a href="#">Russian</a></li>
+                        <li><a href="#">German</a></li>
+                        <li><a href="#">French</a></li>
+                        <li><a href="#">Korean</a></li>
+                        <li><a href="#">Japanese</a></li>
+                        <li><a href="#">Taiwanese</a></li>
                       </ul>
                     </div>
                     <!-- end dropdown -->
 
-                    <a href="/" class="header__sign-in">
+                    <a v-if="!isLoggedIn()" href="/" class="header__sign-in">
                       <i class="icon ion-ios-log-in"></i>
                       <span>Login</span>
+                    </a>
+                    <a v-else href="/logout" class="header__sign-in">
+                      <i class="icon ion-ios-log-in"></i>
+                      <span>Logout</span>
                     </a>
                   </div>
                   <!-- end header auth -->
@@ -155,7 +133,7 @@
               <h6 class="footer__title">Resources</h6>
               <ul class="footer__list">
                 <li><a href="#">About Us</a></li>
-                <li><a href="#">Pricing Plan</a></li>
+                <li><a href="#">FAQ</a></li>
                 <li><a href="#">Help</a></li>
               </ul>
             </div>
@@ -176,12 +154,12 @@
             <div class="col-12 col-sm-4 col-md-3">
               <h6 class="footer__title">Contact</h6>
               <ul class="footer__list">
-                <li><a href="tel:+18002345678">+1 (800) 234-5678</a></li>
-                <li><a href="mailto:support@moviego.com">support@flixgo.com</a></li>
+                <li><a href="tel:+18002345678">+1 (800) 420-6918</a></li>
+                <li><a href="mailto:support@moviego.com">support@moviemate.com</a></li>
               </ul>
               <ul class="footer__social">
-                <li class="facebook">
-                  <a href="#"><i class="icon ion-logo-facebook"></i></a>
+                <li class="github">
+                  <a href="#"><i class="icon ion-logo-github"></i></a>
                 </li>
                 <li class="instagram">
                   <a href="#"><i class="icon ion-logo-instagram"></i></a>
@@ -189,30 +167,12 @@
                 <li class="twitter">
                   <a href="#"><i class="icon ion-logo-twitter"></i></a>
                 </li>
-                <li class="vk">
-                  <a href="#"><i class="icon ion-logo-vk"></i></a>
+                <li class="facebook">
+                  <a href="#"><i class="icon ion-logo-facebook"></i></a>
                 </li>
               </ul>
             </div>
             <!-- end footer list -->
-
-            <!-- footer copyright -->
-            <div class="col-12">
-              <div class="footer__copyright">
-                <small>
-                  © 2018 FlixGo. Create by
-                  <a href="https://themeforest.net/user/dmitryvolkov/portfolio?ref=DmitryVolkov" target="_blank">
-                    Dmitry Volkov
-                  </a>
-                </small>
-
-                <ul>
-                  <li><a href="#">Terms of Use</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                </ul>
-              </div>
-            </div>
-            <!-- end footer copyright -->
           </div>
         </div>
       </footer>

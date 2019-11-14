@@ -9,10 +9,11 @@
               <div class="col-12">
                 <div class="header__content">
                   <!-- header logo -->
-                  <a href="/recommendations" class="header__logo">
-                    <img src="img/logo.svg" alt="" />
+                  <a href="/recommendations" class="">
+                    <img class="logo" src="img/retro.jpg" alt="" />
                   </a>
                   <!-- end header logo -->
+                  <li class="header__nav-item"></li>
 
                   <li class="header__nav-item">
                     <router-link v-if="isLoggedIn()" to="/recommendations" class="header__nav-link">
@@ -181,6 +182,8 @@
   </div>
 </template>
 
+<style></style>
+
 <script>
 export default {
   data: function() {
@@ -199,5 +202,3 @@ export default {
   }
 };
 </script>
-
-<style></style>

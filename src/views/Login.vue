@@ -1,40 +1,46 @@
 <template>
   <div class="login">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="sign__content">
-            <!-- authorization form -->
-            <form v-on:submit.prevent="submit()" class="sign__form">
-              <a class="sign__logo">
-                <img src="img/logo.svg" alt="" />
-              </a>
-              <ul>
-                <li class="text-danger" v-for="error in errors">{{ error }}</li>
-              </ul>
-              <div class="sign__group">
-                <input type="email" class="sign__input" placeholder="email" v-model="email" />
-              </div>
+    <div
+      class="sign section--bg"
+      data-bg="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1825&q=80"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="sign__content">
+              <!-- authorization form -->
+              <form v-on:submit.prevent="submit()" class="sign__form">
+                <a class="">
+                  <img src="img/retro.jpg" alt="" />
+                </a>
+                <ul>
+                  <li class="text-danger" v-for="error in errors">{{ error }}</li>
+                </ul>
+                <br />
+                <div class="sign__group">
+                  <input type="email" class="sign__input" placeholder="email" v-model="email" />
+                </div>
 
-              <div class="sign__group">
-                <input type="password" class="sign__input" placeholder="password" v-model="password" />
-              </div>
+                <div class="sign__group">
+                  <input type="password" class="sign__input" placeholder="password" v-model="password" />
+                </div>
 
-              <div class="sign__group sign__group--checkbox">
-                <input id="remember" name="remember" type="checkbox" checked="checked" />
-                <label for="remember">Remember Me</label>
-              </div>
+                <div class="sign__group sign__group--checkbox">
+                  <input id="remember" name="remember" type="checkbox" checked="checked" />
+                  <label for="remember">Remember Me</label>
+                </div>
 
-              <input type="submit" class="sign__btn" value="Login" />
+                <input type="submit" class="sign__btn" value="Login" />
 
-              <span class="sign__text">
-                Don't have an account?
-                <a href="/signup">Sign up!</a>
-              </span>
+                <span class="sign__text">
+                  Don't have an account?
+                  <a href="/signup">Sign up!</a>
+                </span>
 
-              <span class="sign__text"><a href="#">Forgot password?</a></span>
-            </form>
-            <!-- end authorization form -->
+                <span class="sign__text"><a href="#">Forgot password?</a></span>
+              </form>
+              <!-- end authorization form -->
+            </div>
           </div>
         </div>
       </div>
